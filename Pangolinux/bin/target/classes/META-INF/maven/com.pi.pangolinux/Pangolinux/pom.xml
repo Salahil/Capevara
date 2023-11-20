@@ -8,11 +8,11 @@
 		<version>3.1.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.capevara</groupId>
-	<artifactId>Capevara_System</artifactId>
+	<groupId>com.pi.pangolinux</groupId>
+	<artifactId>Pangolinux</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Capevara_System</name>
-	<description>Demo project for Spring Boot</description>
+	<name>Pangolinux</name>
+	<description>Projeto Integrador quarto periodo de engenharia de Software - FATESG Senai.</description>
 	<properties>
 		<java.version>21</java.version>
 	</properties>
@@ -23,7 +23,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-validation</artifactId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
 		<dependency>
@@ -31,6 +35,11 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
