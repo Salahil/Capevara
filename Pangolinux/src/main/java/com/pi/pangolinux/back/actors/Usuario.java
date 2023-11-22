@@ -1,9 +1,14 @@
 package com.pi.pangolinux.back.actors;
 
+
+//@Entity
+//@Table
 public class Usuario {
 	// atributos:
 	
+	//@Id
 	private int CPF = 0;
+	//@Collum(nullable = false)
 	private String senha = "";
 	private boolean tipoUsario = false;
 	private boolean anonimato = false;
