@@ -15,7 +15,7 @@ public class DenunciaDenunciante {
 	//@Id
 	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID protocolo;
-	//@Collum(nullable = false, unique = true, 11)
+	//@Collum(nullable = false, unique = true, length 11)
 	private int CPF = 0;
 	//@Collum(nullable = false, unique = true)
 	private Endereco endereco = new Endereco();
