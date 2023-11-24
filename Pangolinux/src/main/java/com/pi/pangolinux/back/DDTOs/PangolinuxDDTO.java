@@ -3,22 +3,25 @@ package com.pi.pangolinux.back.DDTOs;
 import java.util.Date;
 
 import com.pi.pangolinux.back.Enums.CategoriaDenuncia;
-import com.pi.pangolinux.back.objects.Endereco;
+import com.pi.pangolinux.back.objectsModels.EnderecoModel;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 public class PangolinuxDDTO {
 	
-	//@NotBlank
-	//@Size(max = 11)
+	@NotBlank
+	@Size(max = 11)
 	private int CPF = 0;
-	//@NotBlank
-	private Endereco endereco = new Endereco();
-	//@NotBlank
+	@NotBlank
+	private EnderecoModel endereco = new EnderecoModel();
+	@NotBlank
 	private Date dataOcorrencia;
-	//@NotBlank
+	@NotBlank
 	private CategoriaDenuncia categoria;
-	//@NotBlank
+	@NotBlank
 	private String autorCrime = "";
-	//@NotBlank
+	@NotBlank
 	private String descricaoDenunciante = "";
 	
 	
@@ -28,10 +31,10 @@ public class PangolinuxDDTO {
 	public void setCPF(int cPF) {
 		CPF = cPF;
 	}
-	public Endereco getEndereco() {
+	public EnderecoModel getEndereco() {
 		return endereco;
 	}
-	public void setEndereco(Endereco endereco) {
+	public void setEndereco(EnderecoModel endereco) {
 		this.endereco = endereco;
 	}
 	public Date getDataOcorrencia() {
