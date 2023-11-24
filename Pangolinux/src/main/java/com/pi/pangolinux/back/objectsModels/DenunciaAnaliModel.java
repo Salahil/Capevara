@@ -11,13 +11,15 @@ import jakarta.persistence.Table;
 public class DenunciaAnaliModel extends com.pi.pangolinux.back.objectsModels.DenunciaDenModel {
 	//@Id
 	/*
-	 * Lembrar que tem que configurar aqui a chave estrangeira da tabela de denuncia do denunciante 
+	 * Lembrar que tem que configurar aqui a chave estrangeira da tabela de denuncia do denunciante
+	 * a chave é a String protocolo 
 	 */
 	@Column(name = "DESCRICAO_ANALISTA",nullable = false)
 	private String descricaoAnalista = "";
-	//@Collum(nullable = false)
+	//@Column(name = PARECER_TECNICO, nullable = false)
 	/*
-	 *  Lembrar que aqui tem que ter o troço que ninguém sabe o q é
+	 *  
+	 *  Lembrar que aqui tem que ter o PARECER_TECNICO que ninguém sabe que formato vai ter
 	 * */
 	@Column(name = "SITUACAO_PROCESSO",nullable = false)
 	private SituacaoProcesso situacao;

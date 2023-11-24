@@ -14,7 +14,7 @@ import com.pi.pangolinux.server.repos.DenunciaDenRepository;
 @Service
 public class DenunciaDenService {
 	
-	static DenunciaDenRepository denunciaDenRepos;
+	private final DenunciaDenRepository denunciaDenRepos;
 	
 	
 	
@@ -28,7 +28,7 @@ public class DenunciaDenService {
     }
 	
 	@Transactional
-	public static DenunciaDenModel save(DenunciaDenModel denuncia) {
+	public DenunciaDenModel save(DenunciaDenModel denuncia) {
 		return denunciaDenRepos.save(denuncia);
 	}
 	

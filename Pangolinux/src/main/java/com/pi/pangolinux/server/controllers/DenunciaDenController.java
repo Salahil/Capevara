@@ -30,12 +30,12 @@ import jakarta.validation.Valid;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/pangolinux-db")
+@RequestMapping("/denunciaden")
 public class DenunciaDenController {
 	
-	final DenunciaDenService pangolinuxServ;
+	final DenunciaDenService denunciaDenService;
 	public DenunciaDenController(DenunciaDenService pangolinuxServ) {
-		this.pangolinuxServ = pangolinuxServ;
+		this.denunciaDenService = pangolinuxServ;
 	}
 	
 	@Controller
@@ -52,17 +52,17 @@ public class DenunciaDenController {
 		DenunciaDenModel denuncia = new DenunciaDenModel();
 		BeanUtils.copyProperties(pangoDTO, denuncia);
 		denuncia.setDataDen(LocalDateTime.now(ZoneId.of("UTC")));
-		return ResponseEntity.status(HttpStatus.CREATED).body(DenunciaDenService.save(denuncia));
+		return ResponseEntity.status(HttpStatus.CREATED).body(denunciaDenService.save(denuncia));
 	}
 	
 	@GetMapping
 	public ResponseEntity<List<DenunciaDenModel>> getTODAS_Denuncias(){
-		return ResponseEntity.status(HttpStatus.OK).body(pangolinuxServ.getALL());
+		return ResponseEntity.status(HttpStatus.OK).body(denunciaDenService.getALL());
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Object> getUMA_Denuncia(@PathVariable(value = "protocolo") UUID protocolo){
-		Optional<DenunciaDenModel> denunciaOptional = pangolinuxServ.findById(protocolo);
+		Optional<DenunciaDenModel> denunciaOptional = denunciaDenService.findById(protocolo);
 		if(!denunciaOptional.isPresent()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Denuncia não encontrada");
 		} else {
