@@ -5,22 +5,18 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.5</version>
+		<version>3.2.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.pi.pangolinux</groupId>
 	<artifactId>Pangolinux</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Pangolinux</name>
-	<description>Projeto Integrador quarto periodo de engenharia de Software - FATESG Senai.</description>
+	<name>blabla</name>
+	<description>Pangolinux, Projeto Integrador do Quarto Periodo do Estado de Goias</description>
 	<properties>
 		<java.version>21</java.version>
 	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -37,15 +33,42 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>		
+		<dependency>
+		  <groupId>org.primefaces</groupId>
+		  <artifactId>primefaces</artifactId>
+		  <version>11.0.0</version>
+		  <scope>compile</scope>
+	  </dependency>
+	   <dependency>
+		  <groupId>org.glassfish</groupId>
+		  <artifactId>javax.faces</artifactId>
+		  <version>2.2.13</version>
+		  <scope>compile</scope>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.hibernate</groupId>
+		  <artifactId>hibernate-validator</artifactId>
+		  <version>5.3.0.Final</version>
+		  <scope>compile</scope>
+	  </dependency>
+<!-- Comi o cu de quem tá lendo! -->
 	</dependencies>
 
 	<build>
@@ -61,5 +84,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	
+<!-- coloca aqui -->
 </project>
