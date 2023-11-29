@@ -1,4 +1,4 @@
-package com.pi.pangolinux.server.controllers;
+package com.pi.pangolinux.back.app.exe.controllers;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,9 +6,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.pi.pangolinux.back.DDTOs.PangolinuxDDTO;
-import com.pi.pangolinux.back.objectsModels.DenunciaAnaliModel;
-import com.pi.pangolinux.server.services.DenunciaAnaliService;
+import com.pi.pangolinux.back.app.exe.DTO.PangolinuxDDTO;
+import com.pi.pangolinux.back.app.exe.models.DenunciaAnaliModel;
+import com.pi.pangolinux.back.app.exe.services.DenunciaAnaliService;
 
 import jakarta.validation.Valid;
 

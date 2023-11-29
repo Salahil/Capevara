@@ -1,6 +1,4 @@
-package com.pi.pangolinux.server.controllers;
-
-import com.pi.pangolinux.server.services.DenunciaDenService;
+package com.pi.pangolinux.back.app.exe.controllers;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -21,10 +19,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pi.pangolinux.back.DDTOs.PangolinuxDDTO;
-import com.pi.pangolinux.back.objectsModels.DenunciaDenModel;
-import com.pi.pangolinux.server.repos.DenunciaDenRepository;
-import com.pi.pangolinux.server.services.DenunciaDenService;
+import com.pi.pangolinux.back.app.exe.DTO.PangolinuxDDTO;
+import com.pi.pangolinux.back.app.exe.models.DenunciaDenModel;
+import com.pi.pangolinux.back.app.exe.repository.DenunciaDenRepository;
+import com.pi.pangolinux.back.app.exe.services.DenunciaDenService;
 
 import jakarta.validation.Valid;
 
@@ -61,7 +59,7 @@ public class DenunciaDenController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Object> getUMA_Denuncia(@PathVariable(value = "protocolo") UUID protocolo){
+	public ResponseEntity<Object> getUMA_Denuncia(@PathVariable(value = "protocolo") String protocolo){
 		Optional<DenunciaDenModel> denunciaOptional = denunciaDenService.findById(protocolo);
 		if(!denunciaOptional.isPresent()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Denuncia não encontrada");
