@@ -1,10 +1,10 @@
-package com.pi.pangolinux.server.services;
+package com.pi.pangolinux.back.app.exe.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pi.pangolinux.back.objectsModels.EnderecoModel;
-import com.pi.pangolinux.server.repos.EnderecoRepository;
+import com.pi.pangolinux.back.app.exe.models.EnderecoModel;
+import com.pi.pangolinux.back.app.exe.repository.EnderecoRepository;
 
 import java.util.List;
 import java.util.Optional;

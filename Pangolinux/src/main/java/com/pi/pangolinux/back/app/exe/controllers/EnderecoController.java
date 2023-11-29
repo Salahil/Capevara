@@ -1,12 +1,12 @@
-package com.pi.pangolinux.server.controllers;
+package com.pi.pangolinux.back.app.exe.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.pi.pangolinux.back.objectsModels.EnderecoModel;
-import com.pi.pangolinux.server.services.EnderecoService;
+import com.pi.pangolinux.back.app.exe.models.EnderecoModel;
+import com.pi.pangolinux.back.app.exe.services.EnderecoService;
 
 import java.util.List;
 import java.util.Optional;

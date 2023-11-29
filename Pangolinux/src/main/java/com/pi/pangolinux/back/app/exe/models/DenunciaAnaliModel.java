@@ -1,4 +1,4 @@
-package com.pi.pangolinux.back.objectsModels;
+package com.pi.pangolinux.back.app.exe.models;
 
 import com.pi.pangolinux.back.Enums.SituacaoProcesso;
 
@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table
-public class DenunciaAnaliModel extends com.pi.pangolinux.back.objectsModels.DenunciaDenModel {
+public class DenunciaAnaliModel extends com.pi.pangolinux.back.app.exe.models.DenunciaDenModel {
 	//@Id
 	/*
 	 * Lembrar que tem que configurar aqui a chave estrangeira da tabela de denuncia do denunciante

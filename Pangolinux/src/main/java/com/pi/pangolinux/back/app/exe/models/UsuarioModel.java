@@ -1,4 +1,4 @@
-package com.pi.pangolinux.back.actorsModels;
+package com.pi.pangolinux.back.app.exe.models;
 
 import java.util.UUID;
 

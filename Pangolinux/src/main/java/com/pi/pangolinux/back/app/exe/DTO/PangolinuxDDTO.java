@@ -1,9 +1,9 @@
-package com.pi.pangolinux.back.DDTOs;
+package com.pi.pangolinux.back.app.exe.DTO;
 
 import java.util.Date;
 
 import com.pi.pangolinux.back.Enums.CategoriaDenuncia;
-import com.pi.pangolinux.back.objectsModels.EnderecoModel;
+import com.pi.pangolinux.back.app.exe.models.EnderecoModel;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

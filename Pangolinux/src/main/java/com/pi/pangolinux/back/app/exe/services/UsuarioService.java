@@ -1,10 +1,10 @@
-package com.pi.pangolinux.server.services;
+package com.pi.pangolinux.back.app.exe.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pi.pangolinux.back.actorsModels.UsuarioModel;
-import com.pi.pangolinux.server.repos.UsuarioRepository;
+import com.pi.pangolinux.back.app.exe.models.UsuarioModel;
+import com.pi.pangolinux.back.app.exe.repository.UsuarioRepository;
 
 import java.util.List;
 import java.util.Optional;
