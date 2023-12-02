@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class FrontController {
 
 	@GetMapping("/login")
-	public String login_xhtml() {
-		return "login_xhtml";
+	public String login() {
+		return "login";
 	}
 }

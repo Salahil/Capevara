@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Page Title</title>
+  <style>
+    body {
+      margin: 0;
+      color: #6a6f8c;
+      background: #c8c8c8;
+      font: 600 16px/18px 'Open Sans', sans-serif;
+    }
+
+    *,:after,:before {
+      box-sizing: border-box;
+    }
+
+    .clearfix:after,.clearfix:before {
+      content: '';
+      display: table;
+    }
+
+    .clearfix:after {
+      clear: both;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .login-wrap {
+      width: 100%;
+      margin: auto;
+      max-width: 525px;
+      min-height: 670px;
+      position: relative;
+      background: url(https://th.bing.com/th/id/OIP.Fm3ranK9UmXoBjx-86uf-QHaNK?rs=1&pid=ImgDetMain) no-repeat center;
+      box-shadow: 0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+    }
+
+    .login-html {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      padding: 90px 70px 50px 70px;
+      background: rgba(42, 158, 38, 0.575);
+    }
+
+    .login-html .sign-in-htm,
+    .login-html .sign-up-htm {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      transform: rotateY(180deg);
+      backface-visibility: hidden;
+      transition: all .4s linear;
+    }
+
+    .login-html .sign-in,
+    .login-html .sign-up,
+    .login-form .group .check {
+      display: none;
+    }
+
+    .login-html .tab,
+    .login-form .group .label,
+    .login-form .group .button {
+      text-transform: uppercase;
+    }
+
+    .login-html .tab {
+      font-size: 22px;
+      margin-right: 15px;
+      padding-bottom: 5px;
+      margin: 0 15px 10px 0;
+      display: inline-block;
+      border-bottom: 2px solid transparent;
+    }
+
+    .login-html .sign-in:checked + .tab,
+    .login-html .sign-up:checked + .tab {
+      color: #fff;
+      border-color: #1161ee;
+    }
+
+    .login-form {
+      min-height: 345px;
+      position: relative;
+      perspective: 1000px;
+      transform-style: preserve-3d;
+    }
+
+    .login-form .group {
+      margin-bottom: 15px;
+    }
+
+    .login-form .group .label,
+    .login-form .group .input,
+    .login-form .group .button {
+      width: 100%;
+      color: #fff;
+      display: block;
+    }
+
+    .login-form .group .input,
+    .login-form .group .button {
+      border: none;
+      padding: 15px 20px;
+      border-radius: 25px;
+      background: rgba(255,255,255,.1);
+    }
+
+    .login-form .group input[data-type="SENHA"] {
+      text-security: circle;
+      -webkit-text-security: circle;
+    }
+
+    .login-form .group .label {
+      color: #aaa;
+      font-size: 12px;
+    }
+
+    .login-form .group .button {
+      background: #1161ee;
+    }
+
+    .login-form .group label .icon {
+      width: 15px;
+      height: 15px;
+      border-radius: 2px;
+      position: relative;
+      display: inline-block;
+      background: rgba(255,255,255,.1);
+    }
+
+    .login-form .group label .icon:before,
+    .login-form .group label .icon:after {
+      content: '';
+      width: 10px;
+      height: 2px;
+      background: #fff;
+      position: absolute;
+      transition: all .2s ease-in-out 0s;
+    }
+
+    .login-form .group label .icon:before {
+      left: 3px;
+      width: 5px;
+      bottom: 6px;
+      transform: scale(0) rotate(0);
+    }
+
+    .login-form .group label .icon:after {
+      top: 6px;
+      right: 0;
+      transform: scale(0) rotate(0);
+    }
+
+    .login-form .group .check:checked + label {
+      color: #fff;
+    }
+
+    .login-form .group .check:checked + label .icon {
+      background: #1161ee;
+    }
+
+    .login-form .group .check:checked + label .icon:before {
+      transform: scale(1) rotate(45deg);
+    }
+
+    .login-form .group .check:checked + label .icon:after {
+      transform: scale(1) rotate(-45deg);
+    }
+
+    .login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm {
+      transform: rotate(0);
+    }
+
+    .login-html .sign-up:checked + .tab + .login-form .sign-up-htm {
+      transform: rotate(0);
+    }
+
+    .hr {
+      height: 2px;
+      margin: 60px 0 50px 0;
+      background: rgba(255,255,255,.2);
+    }
+
+    .foot-lnk {
+      text-align: center;
+    }
+
+    /* Botão Anônimo */
+    .anon-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: #808080;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      z-index: 2; /* Adicionado z-index para colocar à frente */
+    }
+  </style>
+</head>
+<body>
+
+    <div class="login-wrap">
+        <button class="anon-button">Anônimo</button>
+        <div class="login-html">
+          <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label>
+          <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Cadastro</label>
+          <div class="login-form">
+            <div class="sign-in-htm">
+              <div class="group">
+                <label for="user-login" class="label">CPF</label>
+                <input id="user-login" type="text" class="input" oninput="applyCPFMask(this)">
+              </div>
+              <div class="group">
+                <label for="pass-login" class="label">SENHA</label>
+                <input id="pass-login" type="senha" class="input" data-type="senha">
+              </div>
+              <div class="group">
+                <input id="check-login" type="checkbox" class="check" checked>
+                <label for="check-login"><span class="icon"></span> Analista</label>
+              </div>
+              <div class="group">
+                <input type="submit" class="button" value="Login" onclick="validateCPF('user-login')">
+              </div>
+              <div class="hr"></div>
+              <div class="foot-lnk">
+              </div>
+            </div>
+            <div class="sign-up-htm">
+              <div class="group">
+                <label for="user-signup" class="label">CPF</label>
+                <input id="user-signup" type="text" class="input" oninput="applyCPFMask(this)">
+              </div>
+              <div class="group">
+                <label for="pass-signup" class="label">Senha</label>
+                <input id="pass-signup" type="senha" class="input" data-type="senha">
+              </div>
+              <div class="group">
+                <input id="check-signup" type="checkbox" class="check" checked>
+                <label for="check-signup"><span class="icon"></span> Analista</label>
+              </div>
+              <div class="group">
+                <input type="submit" class="button" value="Cadastrar" onclick="validateCPF('user-signup')">
+              </div>
+              <div class="hr"></div>
+              <div class="foot-lnk">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Adicione seus scripts JavaScript aqui -->
+      <script>
+        function applyCPFMask(input) {
+          var value = input.value.replace(/\D/g, '');
+          if (value.length > 3 && value.length <= 6) {
+            input.value = value.replace(/(\d{3})(\d{0,3})/, '$1.$2');
+          } else if (value.length > 6 && value.length <= 9) {
+            input.value = value.replace(/(\d{3})(\d{3})(\d{0,3})/, '$1.$2.$3');
+          } else if (value.length > 9) {
+            input.value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{0,2})/, '$1.$2.$3-$4');
+          } else {
+            input.value = value;
+          }
+        }
+      
+        function validateCPF(inputId) {
+  var cpf = document.getElementById(inputId).value.replace(/\D/g, '');
+  
+  if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) {
+    document.querySelector("#msgStatus").style.color = "red";
+    document.querySelector("#msgStatus").innerText = "Inválido!";
+    return;
+  }
+
+  var soma = 0;
+  var resto;
+
+  for (var i = 1; i <= 9; i++) {
+    soma = soma + parseInt(cpf.substring(i - 1, i)) * (11 - i);
+  }
+
+  resto = (soma * 10) % 11;
+
+  if ((resto === 10) || (resto === 11)) {
+    resto = 0;
+  }
+
+  if (resto !== parseInt(cpf.substring(9, 10))) {
+    document.querySelector("#msgStatus").style.color = "red";
+    document.querySelector("#msgStatus").innerText = "Inválido!";
+    return;
+  }
+
+  soma = 0;
+  
+  for (var i = 1; i <= 10; i++) {
+    soma = soma + parseInt(cpf.substring(i - 1, i)) * (12 - i);
+  }
+
+  resto = (soma * 10) % 11;
+
+  if ((resto === 10) || (resto === 11)) {
+    resto = 0;
+  }
+
+  if (resto !== parseInt(cpf.substring(10, 11))) {
+    document.querySelector("#msgStatus").style.color = "red";
+    document.querySelector("#msgStatus").innerText = "Inválido!";
+    return;
+  }
+
+ // Formata o CPF e exibe
+ inputCPF.value = formatCPF(cpf);
+      document.querySelector("#msgStatus").innerText = "CPF Válido!";
+      document.querySelector("#msgStatus").style.color = "green";
+    }
+
+      </script>
+
+</body>
+</html>

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.pangolinux.modelos.UsuarioModel;
-import com.project.pangolinux.repository.UsuarioRepository;
+import com.project.pangolinux.repositorio.UsuarioRepository;
 
 @RestController
 @RequestMapping("/usuario")
