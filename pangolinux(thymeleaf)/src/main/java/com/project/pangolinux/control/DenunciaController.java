@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.pangolinux.modelos.DenunciaModel;
-import com.project.pangolinux.repository.DenunciaRepository;
+import com.project.pangolinux.repositorio.DenunciaRepository;
 
 @RestController
 @RequestMapping("/denuncia")

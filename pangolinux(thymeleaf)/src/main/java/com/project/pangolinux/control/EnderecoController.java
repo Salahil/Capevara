@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.pangolinux.modelos.EnderecoModel;
-import com.project.pangolinux.repository.EnderecoRepository;
+import com.project.pangolinux.repositorio.EnderecoRepository;
 
 @RestController
 @RequestMapping("/endereco")
