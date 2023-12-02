@@ -1,13 +1,60 @@
 package com.project.pangolinux.control;
 
+import java.util.UUID;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.project.pangolinux.modelos.UsuarioModel;
 
 @Controller
 public class FrontController {
+	
+	/*@GetMapping({"/user", "/"})
+    public String listUser(Model model) {
+        model.addAttribute("user", user.listAllUsers());
+        return "usuario";
+    }
 
-	@GetMapping("/login")
-	public String login_xhtml() {
-		return "login_xhtml";
-	}
+    @GetMapping("/user/new")
+    public String displayPersonRegistrationForm(Model model) {
+        UsuarioModel person = new UsuarioModel();
+        model.addAttribute("person", person);
+        return "create_usuario";
+    }
+
+    @PostMapping("/user")
+    public String savePerson(@ModelAttribute("person") UsuarioModel person) {
+    	user.savePerson(person);
+        return "redirect:/usuario";
+    }
+
+    @GetMapping("/people/edit/{id}")
+    public String displayEditForm(@PathVariable UUID id, Model model) {
+        model.addAttribute("person", user.getPersonById(id));
+        return "edit_usuario";
+    }
+
+    @PostMapping("/people/{id}")
+    public String updatePerson(@PathVariable UUID id, @ModelAttribute("person") UsuarioModel person, Model model) {
+    	UsuarioModel existsPerson = user.getPersonById(id);
+        existsPerson.setCPF(person.getCPF());
+        existsPerson.setSenha(person.getSenha());
+        existsPerson.setTipoUsario(person.getTipoUsuario());
+        
+
+        user.updatePerson(existsPerson);
+
+        return "redirect:/people";
+    }
+
+    @GetMapping("/people/{id}")
+    public String deletePerson(@PathVariable UUID id) {
+    	user.deletePerson(id);
+        return "redirect:/people";
+    }*/
 }

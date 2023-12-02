@@ -27,8 +27,8 @@ public class UsuarioModel {
 	public int getCPF() {
 		return CPF;
 	}
-	public void setCPF(int cPF) {
-		CPF = cPF;
+	public void setCPF(int CPF) {
+		this.CPF = CPF;
 	}
 	public String getSenha() {
 		return senha;
