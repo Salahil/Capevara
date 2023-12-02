@@ -20,4 +20,9 @@ public class DenunciaController {
 	public void addDenuncia(@RequestBody DenunciaModel denuncia) {
 		repo.save(denuncia);
 	}
+	
+	@PostMapping("/editDenuncia")
+	public void editDenuncia(@RequestBody DenunciaModel denuncia) {
+		repo.save(denuncia);
+	}
 }
