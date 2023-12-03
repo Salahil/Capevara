@@ -17,17 +17,17 @@ public class UsuarioModel {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id_usuario;
 	@Column(name = "CPF", unique = true)
-	private int CPF = 0;
+	private String CPF;
 	@Column(name = "SENHA")
-	private String senha = "";
+	private String senha;
 	@Column(name = "TIPO_USUARIO", nullable = false)
 	private boolean tipoUsario = false;
 	private boolean anonimato = false;
 	
-	public int getCPF() {
+	public String getCPF() {
 		return CPF;
 	}
-	public void setCPF(int CPF) {
+	public void setCPF(String CPF) {
 		this.CPF = CPF;
 	}
 	public String getSenha() {
