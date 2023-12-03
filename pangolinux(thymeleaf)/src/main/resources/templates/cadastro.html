@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
             background-color: #f8f9fa;
         }
 
-        .signup-panel {
+        .cadastro-panel {
             background-color: #ffffff;
             padding: 20px;
             border-radius: 8px;
@@ -23,14 +23,14 @@
 <body>
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <a class="navbar-brand" href="#">Sistema de Login</a>
+    <a class="navbar-brand" href="#">Pangolinux</a>
 </nav>
 
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-6 signup-panel">
+        <div class="col-md-6 cadastro-panel">
             <h1 class="text-center mb-4">Cadastro</h1>
-            <form id="signupForm" onsubmit="return validateForm()">
+            <form id="cadastroForm" onsubmit="return validateForm()">
                 <div class="mb-3">
                     <label for="cpf" class="form-label">CPF:</label>
                     <input type="text" class="form-control" id="cpf" name="cpf" required maxlength="14" onblur="validateCpf()">

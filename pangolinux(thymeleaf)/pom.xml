@@ -41,6 +41,7 @@
 			<scope>test</scope>
 		</dependency>
 	
+	<!-- ಥ_ಥ   >.<   ( ͡° ͜ʖ ͡°) -->
 		<dependency>
     		<groupId>org.springframework.boot</groupId>
 	    	<artifactId>spring-boot-starter-thymeleaf</artifactId>

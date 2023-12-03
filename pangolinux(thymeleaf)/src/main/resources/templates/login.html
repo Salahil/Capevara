@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +23,7 @@
 <body>
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <a class="navbar-brand" href="#">Sistema de Login</a>
+    <a class="navbar-brand" href="#">Pangolinux</a>
 </nav>
 
 <div class="container mt-5">
@@ -40,6 +40,10 @@
                     <label for="password" class="form-label">Senha:</label>
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="analista" name="analista">
+                  <label class="form-check-label" for="analista">Analista</label>
+              </div>
                 <div class="d-grid gap-2 col-6 mx-auto mb-3">
                     <button type="submit" class="btn btn-primary">Login</button>
                     <button type="button" class="btn btn-secondary">Anônimo</button>
