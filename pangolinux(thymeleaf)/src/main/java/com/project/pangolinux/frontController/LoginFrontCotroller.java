@@ -1,6 +1,13 @@
 package com.project.pangolinux.frontController;
 
+import org.springframework.web.bind.annotation.GetMapping;
+
 public class LoginFrontCotroller {
+	
+	@GetMapping("/login")
+	public String telaLogin() {
+		return "login";
+	}
 	/*@GetMapping({"/user", "/"})
     public String listUser(Model model) {
         model.addAttribute("user", user.listAllUsers());
