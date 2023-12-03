@@ -17,7 +17,7 @@ public class CadastroFrontController {
 	
 	@GetMapping({"/cadastro", "/"})
 	public String telaCadastro() {
-		return "Cadastro";
+		return "cadastro";
 	}
 	
 	/*@GetMapping({"/user", "/"})
