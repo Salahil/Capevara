@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.pangolinux.modelos.DenunciaModel;
-import com.project.pangolinux.repository.DenunciaRepository;
+import com.project.pangolinux.repositorio.DenunciaRepository;
 
 @RestController
 @RequestMapping("/denuncia")
@@ -18,6 +18,11 @@ public class DenunciaController {
 	
 	@PostMapping("/addDenuncia")
 	public void addDenuncia(@RequestBody DenunciaModel denuncia) {
+		repo.save(denuncia);
+	}
+	
+	@PostMapping("/editDenuncia")
+	public void editDenuncia(@RequestBody DenunciaModel denuncia) {
 		repo.save(denuncia);
 	}
 }
