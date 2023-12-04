@@ -13,6 +13,8 @@ import jakarta.persistence.Table;
 @Table(name = "Usuario_Model")
 public class UsuarioModel {
 
+	private boolean anonimato = false;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id_usuario;
@@ -22,7 +24,15 @@ public class UsuarioModel {
 	private String senha;
 	@Column(name = "TIPO_USUARIO", nullable = false)
 	private boolean tipoUsario = false;
-	private boolean anonimato = false;
+	
+	public UsuarioModel(UsuarioModel usuario) {
+		this.CPF = usuario.getCPF();
+		this.id_usuario = usuario.getId();
+		this.senha = usuario.getSenha();
+		this.tipoUsario = usuario.tipoUsario;
+	}
+	public UsuarioModel() {
+	}
 	
 	public String getCPF() {
 		return CPF;
@@ -49,6 +59,15 @@ public class UsuarioModel {
 	public void setTipoUsario(boolean tipoUsario) {
 		this.tipoUsario = tipoUsario;
 	}
-	
+	public boolean isAnalista() {
+		if (this.tipoUsario) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	private UUID getId() {
+		return id_usuario;
+	}
 	
 }

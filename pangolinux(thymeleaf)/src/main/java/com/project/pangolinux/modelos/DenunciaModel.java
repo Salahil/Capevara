@@ -1,6 +1,7 @@
 package com.project.pangolinux.modelos;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 import com.project.pangolinux.enums.Categoria;
@@ -17,21 +18,23 @@ import jakarta.persistence.Table;
 @Table(name = "Denuncia_Model")
 public class DenunciaModel {
 
+	private UsuarioModel usuario = new UsuarioModel();
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public UUID id_Denuncia;
 	@Column(name = "Protocolo")
 	public String protocolo;
 	@Column(name = "CPF")
-	private int CPF;
-	@Column(name = "Enderco")
+	private String CPF;
+	@Column(name = "Endereco")
 	private UUID endereco;
 	@Column(name = "Data_Ocorrencia")
-	private String dataOcorrencia;
+	private Date dataOcorrencia;
 	@Column(name = "Data_Denuncia")
-	private String dataDenuncia;
+	private Date dataDenuncia;
 	@Column(name = "Categoria")
-	private String categoria;
+	private Categoria categoria;
 	@Column(name = "Autor_Crime")
 	private String autor;
 	@Column(name = "Descricao_do_Denunciante")
@@ -41,15 +44,27 @@ public class DenunciaModel {
 	@Column(name = "Descricao_Analista")
 	private String descricaoAnalista;
 	@Column(name = "Situacao_Processo")
-	private String situacaoProcesso;
+	private Situacao situacaoProcesso;
 
-	public void iserirDataDenuncia(LocalDateTime data) {
-		this.dataDenuncia = "" + data;
+	public void iserirDataDenuncia(Date date) {
+		this.dataDenuncia = date;
 	}
 	public void inserirCategoria(Categoria categoria) {
-		this.categoria = "" + categoria;
+		this.categoria = categoria;
 	}
 	public void inserirSituacao(Situacao situacao) {
-		this.situacaoProcesso = "" + situacao;
+		this.situacaoProcesso = situacao;
+	}
+	public void setCpf(String cpf) {
+		this.CPF = cpf;
+	}
+	public void setNumeroProtocolo(String protocolo) {
+		this.protocolo = protocolo;
+	}
+	public void setUsuario(UsuarioModel usuarioLogado) {
+		this.usuario = usuarioLogado;
+	}
+	public UsuarioModel getUsuario(UsuarioModel user) {
+		return usuario;
 	}
 }

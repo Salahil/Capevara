@@ -1,46 +1,32 @@
 package com.project.pangolinux.frontController;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.project.pangolinux.modelos.DenunciaModel;
+import com.project.pangolinux.repositorio.DenunciaRepository;
+
+import jakarta.servlet.http.HttpSession;
+
+@Controller
+@RequestMapping("/denunciaUsuario")
 public class CriarDenunciaFrontController {
-	/*@GetMapping({"/user", "/"})
-    public String listUser(Model model) {
-        model.addAttribute("user", user.listAllUsers());
-        return "usuario";
+
+    @Autowired
+    private DenunciaRepository repo;
+
+    @PostMapping
+    public String criarDenuncia(@ModelAttribute("denuncia") DenunciaModel denuncia, HttpSession session) {
+        // Lógica para salvar a denúncia no banco de dados
+        // Certifique-se de preencher automaticamente os campos como data da denúncia, número do protocolo, etc.
+        // Utilize a sessão para obter o CPF do usuário logado, se aplicável
+        String cpfUsuarioLogado = (String) session.getAttribute("cpfUsuarioLogado");
+        denuncia.setCpf(cpfUsuarioLogado);
+        repo.save(denuncia);
+
+        return "redirect:/visualizarDenunciaUsuario";
     }
-    @GetMapping("/user/new")
-    public String displayPersonRegistrationForm(Model model) {
-        UsuarioModel person = new UsuarioModel();
-        model.addAttribute("person", person);
-        return "create_usuario";
-    }
-
-    @PostMapping("/user")
-    public String savePerson(@ModelAttribute("person") UsuarioModel person) {
-    	user.savePerson(person);
-        return "redirect:/usuario";
-    }
-
-    @GetMapping("/people/edit/{id}")
-    public String displayEditForm(@PathVariable UUID id, Model model) {
-        model.addAttribute("person", user.getPersonById(id));
-        return "edit_usuario";
-    }
-
-    @PostMapping("/people/{id}")
-    public String updatePerson(@PathVariable UUID id, @ModelAttribute("person") UsuarioModel person, Model model) {
-    	UsuarioModel existsPerson = user.getPersonById(id);
-        existsPerson.setCPF(person.getCPF());
-        existsPerson.setSenha(person.getSenha());
-        existsPerson.setTipoUsario(person.getTipoUsuario());
-        
-
-        user.updatePerson(existsPerson);
-
-        return "redirect:/people";
-    }
-
-    @GetMapping("/people/{id}")
-    public String deletePerson(@PathVariable UUID id) {
-    	user.deletePerson(id);
-        return "redirect:/people";
-    }*/
 }

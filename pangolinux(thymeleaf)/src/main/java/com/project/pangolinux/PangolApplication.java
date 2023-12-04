@@ -11,6 +11,4 @@ public class PangolApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PangolApplication.class, args);
 	}
-	
-
 }
