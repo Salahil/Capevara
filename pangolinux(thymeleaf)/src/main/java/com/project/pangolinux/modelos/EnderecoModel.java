@@ -25,9 +25,9 @@ public class EnderecoModel {
 	@Column(name = "referencia")
 	private String referencia;
 	@Column(name = "latitude")
-	private long latitude;
+	private int latitude;
 	@Column(name = "longitude")
-	private long longitude;
+	private int longitude;
 	@Column(name = "municipio")
 	private String municipio;
 	@Column(name = "complemento")

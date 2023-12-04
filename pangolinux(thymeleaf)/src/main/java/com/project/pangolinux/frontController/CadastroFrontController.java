@@ -17,6 +17,11 @@ public class CadastroFrontController {
 
     @Autowired
     private UsuarioRepository repo;
+	
+	@GetMapping({"/cadastro", "/"})
+	public String telaCadastro() {
+		return "cadastro";
+	}	
 
     @GetMapping
     public String exibirFormularioCadastro(Model model) {

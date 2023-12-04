@@ -1,10 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+  <title>Editar Denuncia</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 </head>
+
+
 <body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">Pangolinux</a>
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" th:href="@{/people}"></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                <h1 class="text-center">Editar Denuncia</h1>
+                <div class="card-body">
+                    <form th:action="@{/people}" th:object="${person}" method="POST">
+
+                       <!-- Detalhes da Ocorrência -->
+
+                       <div class="form-group">
+                        <label>Logradouro: </label>
+                        <input type="text" id="idEndereco" th:field="*{endereco.logradouro}" class="form-control" placeholder="Logradouro" required readonly>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                      <label>CEP: </label>
+                      <input type="text" id="idCep" th:field="*{endereco.cep}" class="form-control" placeholder="Informe o CEP" required onblur="consultarCep()" readonly>
+                  </div>
+                    <br>
+                    <div class="form-group">
+                      <label>Bairro: </label>
+                      <input type="text" id="idBairro" th:field="*{endereco.bairro}" class="form-control" placeholder="Bairro" required readonly>
+                  </div>
+                    <br>
+                    <div class="form-group">
+                      <label>Latitude: </label>
+                      <input type="text" name="endereco.latitude" th:field="*{endereco.latitude}" class="form-control"
+                          placeholder="Informe a latitude" required readonly>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                      <label>Longitude: </label>
+                      <input type="text" name="endereco.longitude" th:field="*{endereco.longitude}" class="form-control"
+                          placeholder="Informe a longitude" required readonly>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label>Cidade: </label>
+                    <input type="text" id="idCidade" th:field="*{endereco.municipio}" class="form-control" placeholder="Informe a cidade" required readonly>
+                </div>
+                  <br>
+                  <div class="form-group">
+                      <label>Complemento: </label>
+                      <input type="text" name="endereco.complemento" th:field="*{endereco.complemento}" class="form-control"
+                          placeholder="Informe o complemento" readonly>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label>Referência: </label>
+                    <input type="text" name="endereco.referencia" th:field="*{endereco.referencia}" class="form-control"
+                        placeholder="Informe a referência" required readonly>
+                </div>
+                        <br>    
+                        <div class="form-group">
+                            <label>Número: </label>
+                            <input type="number" id="idNumero" name="endereco.numero" th:field="*{endereco.numero}" class="form-control"
+                                placeholder="Informe o número" required readonly>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label>Data da Ocorrência: </label>
+                            <input type="date" name="dataOcorrencia" th:field="*{dataOcorrencia}" class="form-control"
+                                placeholder="Informe a data da ocorrência" required readonly>
+                        </div>       
+                        <br>
+
+                        <div class="form-group">
+                            <label>Autor do Crime: </label>
+                            <input type="text" name="autor" th:field="*{autor}" class="form-control"
+                                placeholder="Informe o autor do crime" readonly>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                          <label>Descrição: </label>
+                          <textarea name="descricaoDenunciante" th:field="*{descricaoDenunciante}" class="form-control"
+                              placeholder="Informe a descrição do denunciante" rows="4" required readonly></textarea>
+                      </div>
+                        <br>
+                        <div class="form-group">
+                          <label>Categoria: </label>
+                          <select name="categoria" th:field="*{categoria}" class="form-control" required>
+                              <option value="FLORA">Flora</option>
+                              <option value="FAUNA">Fauna</option>
+                              <option value="POLUICAO">Poluição</option>
+                              <option value="ODENAMETO_URBANO">Ordenamento Urbano</option>
+                              <option value="ADMINISTRACAO_AMBIENTAL">Administração Ambiental</option>
+                          </select>
+                      </div>
+                      <br>
+                      <div class="form-group" th:if="${not #strings.isEmpty(person.parecer)}">
+                        <label>Parecer Técnico: </label>
+                        <input type="text" name="parecer" th:field="*{parecer}" class="form-control" placeholder="Informe o parecer técnico">
+                    </div>
+                    <br>
+                    
+                    <div class="form-group" th:if="${not #strings.isEmpty(person.descricaoAnalista)}">
+                      <label>Descrição do Analista: </label>
+                      <textarea name="descricaoAnalista" th:field="*{descricaoAnalista}" class="form-control"
+                          placeholder="Informe a descrição do analista" rows="4"></textarea>
+                  </div>
+                    <br>
+                    
+                    <div class="form-group" th:if="${not #strings.isEmpty(person.situacaoProcesso)}">
+                      <label>Situação do Processo: </label>
+                      <select name="situacaoProcesso" th:field="*{situacaoProcesso}" class="form-control" required>
+                          <option th:each="situacao : ${T(com.project.pangolinux.enums.Situacao).values()}"
+                                  th:value="${situacao}" th:text="${situacao}"></option>
+                      </select>
+                  </div>
+                    <br>
+                        <div class="box-footer">
+                            <button class="btn btn-success">Salvar</button>
+                        </div>
+
+                    </form>                         
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/RobinHerbots/Inputmask/5.x/dist/jquery.inputmask.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#idCep').inputmask('99999-999');
+        });
+    
+        function consultarCep(){
+                    var cep = $('#idCep').val();
+                    cep = cep.replace("-", "");
+                    if (cep != ""){
+                        $.ajax({url: 'https://viacep.com.br/ws/' + cep + '/json/',
+                                dataType: 'json',
+                                success: function(resposta){
+                                    $("#idEndereco").val(resposta.logradouro);
+                                    $("#idBairro").val(resposta.bairro);
+                                    $("#idCidade").val(resposta.localidade);
+                                    $("#idUf").val(resposta.uf);
+                                    $("#idNumero").focus();}});}
+                }
+    </script>
 
 </body>
+
 </html>
