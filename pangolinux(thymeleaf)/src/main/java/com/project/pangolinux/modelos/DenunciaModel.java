@@ -23,7 +23,7 @@ public class DenunciaModel {
 	@Column(name = "Protocolo")
 	public String protocolo;
 	@Column(name = "CPF")
-	private int CPF;
+	private String CPF;
 	@Column(name = "Enderco")
 	private UUID endereco;
 	@Column(name = "Data_Ocorrencia")
