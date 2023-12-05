@@ -1,6 +1,40 @@
 package com.project.pangolinux.frontController;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.project.pangolinux.modelos.DenunciaModel;
+import com.project.pangolinux.modelos.UsuarioModel;
+import com.project.pangolinux.repositorio.DenunciaRepository;
+import com.project.pangolinux.repositorio.UsuarioRepository;
+
+@Controller
 public class CriarDenunciaFrontController {
+	
+	@Autowired
+    private DenunciaRepository denunciaRepository;
+	
+
+    @GetMapping({"/denunciaUsuario"})
+    public String telaDenunciaUsuario(Model model) {
+        model.addAttribute("denuncia", new DenunciaModel());
+        return "denuncia";
+    }
+
+    @PostMapping("/cadastrarDenuncia")
+    public String cadastrarDenuncia(@ModelAttribute DenunciaModel den, Model model) {
+       
+
+        // Lógica para salvar no banco de dados
+        denunciaRepository.save(den);
+
+        // Redireciona para a página de sucesso ou outra ação necessária
+        return "redirect:/login";
+    }
 	/*@GetMapping({"/user", "/"})
     public String listUser(Model model) {
         model.addAttribute("user", user.listAllUsers());
