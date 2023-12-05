@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.project.pangolinux.modelos.DenunciaModel;
 import com.project.pangolinux.repositorio.DenunciaRepository;
@@ -28,5 +30,11 @@ public class CriarDenunciaFrontController {
 		return "denunciausuario";
 	}
 	
+	@PostMapping("/salvarDenuncia")
+	public String salvarDenuncia(@ModelAttribute DenunciaModel denuncia) {
+	    repoDen.save(denuncia);
+	    return "redirect:/denunciaUsuario";
+	}
+
 	
 }
