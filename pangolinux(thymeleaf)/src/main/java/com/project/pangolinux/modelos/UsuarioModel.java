@@ -2,6 +2,8 @@ package com.project.pangolinux.modelos;
 
 import java.util.UUID;
 
+import com.project.pangolinux.Crypt;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,17 +33,16 @@ public class UsuarioModel {
 		this.CPF = CPF;
 	}
 	public String getSenha() {
-		return senha;
+		return senha = Crypt.descriptografar(senha, Crypt.chave);
 	}
 	public boolean getTipoUsuario() {
 		return tipoUsario;
 	}
-	
 	public boolean getAnonimato() {
 		return anonimato;
 	}
 	public void setSenha(String senha) {
-		this.senha = senha;
+		this.senha = Crypt.criptografar(senha, Crypt.chave);
 	}
 	public boolean isTipoUsario() {
 		return tipoUsario;
@@ -49,6 +50,8 @@ public class UsuarioModel {
 	public void setTipoUsario(boolean tipoUsario) {
 		this.tipoUsario = tipoUsario;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "UsuarioModel [CPF=" + CPF + ", senha=" + senha + ", tipoUsario=" + tipoUsario + ", anonimato=" + anonimato + "]";
+	}
 }

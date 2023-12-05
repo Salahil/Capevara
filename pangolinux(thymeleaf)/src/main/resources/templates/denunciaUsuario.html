@@ -1,10 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<title>Registro da Denuncia</title>
 </head>
+
+
 <body>
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		
+	</nav>
+
+	<br>
+	<div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                <h1 class="text-center">Registro da Denuncia</h1>
+                <div class="card-body">
+                   
+
+						<!-- Detalhes da Ocorrência -->
+
+						<div class="form-group">
+							<label>Logradouro: </label>
+							<input type="text" id="idEndereco"  class="form-control"
+								placeholder="Logradouro" required>
+						</div>
+						<br>
+						<div class="form-group">
+							<label>CEP: </label>
+							<input type="text" id="idCep"  class="form-control"
+								placeholder="Informe o CEP" required onblur="consultarCep()">
+						</div>
+						<br>
+						<div class="form-group">
+							<label>Bairro: </label>
+							<input type="text" id="idBairro"  class="form-control"
+								placeholder="Bairro" required>
+						</div>
+						<br>
+						<div class="form-group">
+							<label>Latitude: </label>
+							<input type="text" name="endereco.latitude" 
+								class="form-control" placeholder="Informe a latitude" required>
+						</div>
+						<br>
+						<div class="form-group">
+							<label>Longitude: </label>
+							<input type="text" name="endereco.longitude" 
+								class="form-control" placeholder="Informe a longitude" required>
+						</div>
+						<br>
+						<div class="form-group">
+							<label>Cidade: </label>
+							<input type="text" id="idCidade"  class="form-control"
+								placeholder="Informe a cidade" required>
+						</div>
+						<br>
+						<div class="form-group">
+							<label>Complemento: </label>
+							<input type="text" name="endereco.complemento" th:field="*{endereco.complemento}"
+								class="form-control" placeholder="Informe o complemento">
+						</div>
+						<br>
+						<div class="form-group">
+							<label>Referência: </label>
+							<input type="text" name="endereco.referencia" 
+								class="form-control" placeholder="Informe a referência" required>
+						</div>
+						<br>
+						<div class="form-group">
+							<label>Número: </label>
+							<input type="number" id="idNumero" name="endereco.numero" 
+								class="form-control" placeholder="Informe o número" required>
+						</div>
+						<br>
+						<div class="form-group">
+							<label>Data da Ocorrência: </label>
+							<input type="date" name="dataOcorrencia"  class="form-control"
+								placeholder="Informe a data da ocorrência" required>
+						</div>
+						<br>
+
+						<div class="form-group">
+							<label>Autor do Crime: </label>
+							<input type="text" name="autor"  class="form-control"
+								placeholder="Informe o autor do crime">
+						</div>
+						<br>
+
+						<div class="form-group">
+							<label>Descrição: </label>
+							<textarea name="descricaoDenunciante" 
+								class="form-control" placeholder="Informe a descrição do denunciante" rows="4" required
+								readonly></textarea>
+						</div>
+						<br>
+						<div class="form-group">
+							<label>Categoria: </label>
+							<select name="categoria"  class="form-control" required>
+								<option value="FLORA">Flora</option>
+								<option value="FAUNA">Fauna</option>
+								<option value="POLUICAO">Poluição</option>
+								<option value="ODENAMETO_URBANO">Ordenamento Urbano</option>
+								<option value="ADMINISTRACAO_AMBIENTAL">Administração Ambiental</option>
+							</select>
+						</div>
+						<br>
+						<div class="box-footer">
+							<button class="btn btn-success">Salvar</button>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		$(document).ready(function () {
+			$('#idCep').inputmask('99999-999');
+		});
+
+		function consultarCep() {
+			var cep = $('#idCep').val();
+			cep = cep.replace("-", "");
+			if (cep != "") {
+				$.ajax({
+					url: 'https://viacep.com.br/ws/' + cep + '/json/',
+					dataType: 'json',
+					success: function (resposta) {
+						$("#idEndereco").val(resposta.logradouro);
+						$("#idBairro").val(resposta.bairro);
+						$("#idCidade").val(resposta.localidade);
+						$("#idUf").val(resposta.uf);
+						$("#idNumero").focus();
+					}
+				});
+			}
+		}
+	</script>
 
 </body>
+
 </html>
