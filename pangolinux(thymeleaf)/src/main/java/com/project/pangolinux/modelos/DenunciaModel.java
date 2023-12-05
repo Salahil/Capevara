@@ -43,8 +43,6 @@ public class DenunciaModel {
 	@Column(name = "Situacao_Processo")
 	private String situacaoProcesso;
 
-	
-	
 	public String getProtocolo() {
 		return protocolo;
 	}
@@ -120,4 +118,12 @@ public class DenunciaModel {
 	public void inserirSituacao(Situacao situacao) {
 		this.situacaoProcesso = "" + situacao;
 	}
+	@Override
+	public String toString() {
+		return "DenunciaModel [protocolo=" + protocolo + ", CPF=" + CPF + ", endereco=" + endereco + ", dataOcorrencia="
+				+ dataOcorrencia + ", dataDenuncia=" + dataDenuncia + ", categoria=" + categoria + ", autor=" + autor
+				+ ", descricaoDenunciante=" + descricaoDenunciante + ", parecer=" + parecer + ", descricaoAnalista="
+				+ descricaoAnalista + ", situacaoProcesso=" + situacaoProcesso + "]";
+	}
+	
 }

@@ -49,6 +49,11 @@ public class UsuarioModel {
 	public void setTipoUsario(boolean tipoUsario) {
 		this.tipoUsario = tipoUsario;
 	}
+	@Override
+	public String toString() {
+		return "UsuarioModel [CPF=" + CPF + ", senha=" + senha + ", tipoUsario=" + tipoUsario + ", anonimato="
+				+ anonimato + "]";
+	}
 	
 	
 }
