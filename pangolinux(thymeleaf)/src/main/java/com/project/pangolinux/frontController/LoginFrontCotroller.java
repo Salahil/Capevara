@@ -25,6 +25,8 @@ public class LoginFrontCotroller {
         return "login";
     }
 	
+	
+	
 	@PostMapping("/login")
     public String realizarLogin(@RequestParam String cpf, @RequestParam String senha, Model model) {
 		if (cpf == null) return "redirect:/denunciaUsuario";
@@ -36,6 +38,6 @@ public class LoginFrontCotroller {
             if (usuario.getTipoUsuario()) return "redirect/listaDenunciaAnalista";
         }
         model.addAttribute("mensagem", "Falha na autenticação. Verifique CPF e senha.");
-        return "paginaDeFalha";    
+        return "login";    
     }
 }
