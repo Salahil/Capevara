@@ -27,6 +27,4 @@ public class CriarDenunciaFrontController {
 		model.addAttribute("denuncia", new DenunciaModel());
 		return "denunciausuario";
 	}
-	
-	
 }

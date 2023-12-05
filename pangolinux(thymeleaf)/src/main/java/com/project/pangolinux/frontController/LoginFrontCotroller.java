@@ -21,7 +21,8 @@ public class LoginFrontCotroller {
 	UsuarioRepository repo;
 	
 	@GetMapping("/login")
-    public String telaLogin() {
+    public String telaLogin(Model model) {
+		model.addAttribute("usuario", new UsuarioModel());
         return "login";
     }
 	
