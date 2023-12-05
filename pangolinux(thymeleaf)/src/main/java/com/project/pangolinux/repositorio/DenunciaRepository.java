@@ -11,3 +11,4 @@ import com.project.pangolinux.modelos.DenunciaModel;
 public interface DenunciaRepository extends JpaRepository<DenunciaModel, UUID> {
 
 }
+	

@@ -9,6 +9,7 @@ import java.util.UUID;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<UsuarioModel, UUID> {
-    // Adicione métodos de consulta específicos, se necessário
+    boolean existsByCPF(String cpf);
 }
+
 

@@ -43,6 +43,72 @@ public class DenunciaModel {
 	@Column(name = "Situacao_Processo")
 	private String situacaoProcesso;
 
+	public String getProtocolo() {
+		return protocolo;
+	}
+	public void setProtocolo(String protocolo) {
+		this.protocolo = protocolo;
+	}
+	public String getCPF() {
+		return CPF;
+	}
+	public void setCPF(String cPF) {
+		CPF = cPF;
+	}
+	public UUID getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(UUID endereco) {
+		this.endereco = endereco;
+	}
+	public String getDataOcorrencia() {
+		return dataOcorrencia;
+	}
+	public void setDataOcorrencia(String dataOcorrencia) {
+		this.dataOcorrencia = dataOcorrencia;
+	}
+	public String getDataDenuncia() {
+		return dataDenuncia;
+	}
+	public void setDataDenuncia(String dataDenuncia) {
+		this.dataDenuncia = dataDenuncia;
+	}
+	public String getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+	public String getAutor() {
+		return autor;
+	}
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+	public String getDescricaoDenunciante() {
+		return descricaoDenunciante;
+	}
+	public void setDescricaoDenunciante(String descricaoDenunciante) {
+		this.descricaoDenunciante = descricaoDenunciante;
+	}
+	public String getParecer() {
+		return parecer;
+	}
+	public void setParecer(String parecer) {
+		this.parecer = parecer;
+	}
+	public String getDescricaoAnalista() {
+		return descricaoAnalista;
+	}
+	public void setDescricaoAnalista(String descricaoAnalista) {
+		this.descricaoAnalista = descricaoAnalista;
+	}
+	public String getSituacaoProcesso() {
+		return situacaoProcesso;
+	}
+	public void setSituacaoProcesso(String situacaoProcesso) {
+		this.situacaoProcesso = situacaoProcesso;
+	}
 	public void iserirDataDenuncia(LocalDateTime data) {
 		this.dataDenuncia = "" + data;
 	}
@@ -52,4 +118,12 @@ public class DenunciaModel {
 	public void inserirSituacao(Situacao situacao) {
 		this.situacaoProcesso = "" + situacao;
 	}
+	@Override
+	public String toString() {
+		return "DenunciaModel [protocolo=" + protocolo + ", CPF=" + CPF + ", endereco=" + endereco + ", dataOcorrencia="
+				+ dataOcorrencia + ", dataDenuncia=" + dataDenuncia + ", categoria=" + categoria + ", autor=" + autor
+				+ ", descricaoDenunciante=" + descricaoDenunciante + ", parecer=" + parecer + ", descricaoAnalista="
+				+ descricaoAnalista + ", situacaoProcesso=" + situacaoProcesso + "]";
+	}
+	
 }

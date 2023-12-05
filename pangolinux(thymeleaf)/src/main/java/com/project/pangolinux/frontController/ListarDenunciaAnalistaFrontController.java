@@ -1,46 +1,30 @@
 package com.project.pangolinux.frontController;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.project.pangolinux.modelos.DenunciaModel;
+import com.project.pangolinux.repositorio.DenunciaRepository;
+import com.project.pangolinux.repositorio.EnderecoRepository;
+
+@Controller
 public class ListarDenunciaAnalistaFrontController {
-	/*@GetMapping({"/user", "/"})
-    public String listUser(Model model) {
-        model.addAttribute("user", user.listAllUsers());
-        return "usuario";
+	
+    @Autowired
+    private DenunciaRepository denunciaRepository;
+
+    @Autowired
+    private EnderecoRepository enderecoRepository;
+
+    @GetMapping("/listaDenunciaAnalista")
+    public String listaDenunciaAnalista(Model model) {
+        List<DenunciaModel> denuncias = denunciaRepository.findAll();
+        model.addAttribute("denuncias", denuncias);
+        return "listaDenunciaAnalista"; 
     }
-    @GetMapping("/user/new")
-    public String displayPersonRegistrationForm(Model model) {
-        UsuarioModel person = new UsuarioModel();
-        model.addAttribute("person", person);
-        return "create_usuario";
-    }
-
-    @PostMapping("/user")
-    public String savePerson(@ModelAttribute("person") UsuarioModel person) {
-    	user.savePerson(person);
-        return "redirect:/usuario";
-    }
-
-    @GetMapping("/people/edit/{id}")
-    public String displayEditForm(@PathVariable UUID id, Model model) {
-        model.addAttribute("person", user.getPersonById(id));
-        return "edit_usuario";
-    }
-
-    @PostMapping("/people/{id}")
-    public String updatePerson(@PathVariable UUID id, @ModelAttribute("person") UsuarioModel person, Model model) {
-    	UsuarioModel existsPerson = user.getPersonById(id);
-        existsPerson.setCPF(person.getCPF());
-        existsPerson.setSenha(person.getSenha());
-        existsPerson.setTipoUsario(person.getTipoUsuario());
-        
-
-        user.updatePerson(existsPerson);
-
-        return "redirect:/people";
-    }
-
-    @GetMapping("/people/{id}")
-    public String deletePerson(@PathVariable UUID id) {
-    	user.deletePerson(id);
-        return "redirect:/people";
-    }*/
 }
+
