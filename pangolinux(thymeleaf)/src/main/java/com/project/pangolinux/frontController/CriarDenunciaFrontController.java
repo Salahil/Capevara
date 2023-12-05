@@ -4,18 +4,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.project.pangolinux.modelos.DenunciaModel;
 import com.project.pangolinux.modelos.UsuarioModel;
 import com.project.pangolinux.repositorio.DenunciaRepository;
+=======
+
+import com.project.pangolinux.modelos.DenunciaModel;
+import com.project.pangolinux.repositorio.DenunciaRepository;
+import com.project.pangolinux.repositorio.EnderecoRepository;
+>>>>>>> julio2.0
 import com.project.pangolinux.repositorio.UsuarioRepository;
 
 @Controller
 public class CriarDenunciaFrontController {
 	
 	@Autowired
+<<<<<<< HEAD
     private DenunciaRepository denunciaRepository;
 	
 
@@ -78,3 +86,21 @@ public class CriarDenunciaFrontController {
         return "redirect:/people";
     }*/
 }
+=======
+	DenunciaRepository repoDen;
+	
+	@Autowired
+	UsuarioRepository repoUser;
+	
+	@Autowired
+	EnderecoRepository repoEnd;
+	
+	@GetMapping("/denunciaUsuario")
+	public String telaCriarDenuncia(Model model) {
+		model.addAttribute("denuncia", new DenunciaModel());
+		return "denunciausuario";
+	}
+	
+	
+}
+>>>>>>> julio2.0

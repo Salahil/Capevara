@@ -27,14 +27,14 @@ public class CadastroFrontController {
         // Lógica de validação
         if (usuario.getCPF() == null || usuario.getCPF().isEmpty()) {
             model.addAttribute("error", "CPF é obrigatório");
-            return "cadastro"; // Retorna para o formulário com mensagem de erro
+            return "cadastro"; 
         }
 
         // Lógica para salvar no banco de dados
         usuarioRepository.save(usuario);
 
         // Redireciona para a página de sucesso ou outra ação necessária
-        return "redirect:/pagina-de-sucesso";
+        return "redirect:/login";
     }
 }
 
