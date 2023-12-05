@@ -5,11 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import com.project.pangolinux.modelos.UsuarioModel;
 
+import java.util.List;
 import java.util.UUID;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<UsuarioModel, UUID> {
-    boolean existsByCPF(String cpf);
+	List<UsuarioModel> findByCPF(String cpf);
 }
-
-

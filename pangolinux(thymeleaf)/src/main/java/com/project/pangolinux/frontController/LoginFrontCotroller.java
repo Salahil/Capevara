@@ -1,53 +1,43 @@
 package com.project.pangolinux.frontController;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.project.pangolinux.modelos.UsuarioModel;
+import com.project.pangolinux.repositorio.UsuarioRepository;
+
+@Controller
 public class LoginFrontCotroller {
 	
+	@Autowired
+	UsuarioRepository repo;
+	
 	@GetMapping("/login")
-	public String telaLogin() {
-		return "login";
-	}
-	/*@GetMapping({"/user", "/"})
-    public String listUser(Model model) {
-        model.addAttribute("user", user.listAllUsers());
-        return "usuario";
+    public String telaLogin() {
+        return "login";
     }
-    @GetMapping("/user/new")
-    public String displayPersonRegistrationForm(Model model) {
-        UsuarioModel person = new UsuarioModel();
-        model.addAttribute("person", person);
-        return "create_usuario";
+	
+	
+	
+	@PostMapping("/login")
+    public String realizarLogin(@RequestParam String cpf, @RequestParam String senha, Model model) {
+		if (cpf == null) return "redirect:/denunciaUsuario";
+		UsuarioModel usuario = (UsuarioModel) repo.findByCPF(cpf);
+		
+        if (usuario != null && usuario.getSenha().equals(senha)) {
+            model.addAttribute("mensagem", "Login bem-sucedido para o usuário: " + cpf);
+            if (!usuario.getTipoUsuario()) return "redirect/listaDenunciaUsuario";
+            if (usuario.getTipoUsuario()) return "redirect/listaDenunciaAnalista";
+        }
+        model.addAttribute("mensagem", "Falha na autenticação. Verifique CPF e senha.");
+        return "login";    
     }
-
-    @PostMapping("/user")
-    public String savePerson(@ModelAttribute("person") UsuarioModel person) {
-    	user.savePerson(person);
-        return "redirect:/usuario";
-    }
-
-    @GetMapping("/people/edit/{id}")
-    public String displayEditForm(@PathVariable UUID id, Model model) {
-        model.addAttribute("person", user.getPersonById(id));
-        return "edit_usuario";
-    }
-
-    @PostMapping("/people/{id}")
-    public String updatePerson(@PathVariable UUID id, @ModelAttribute("person") UsuarioModel person, Model model) {
-    	UsuarioModel existsPerson = user.getPersonById(id);
-        existsPerson.setCPF(person.getCPF());
-        existsPerson.setSenha(person.getSenha());
-        existsPerson.setTipoUsario(person.getTipoUsuario());
-        
-
-        user.updatePerson(existsPerson);
-
-        return "redirect:/people";
-    }
-
-    @GetMapping("/people/{id}")
-    public String deletePerson(@PathVariable UUID id) {
-    	user.deletePerson(id);
-        return "redirect:/people";
-    }*/
 }
