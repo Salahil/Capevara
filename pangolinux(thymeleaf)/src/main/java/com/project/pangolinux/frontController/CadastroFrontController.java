@@ -34,7 +34,7 @@ public class CadastroFrontController {
         usuarioRepository.save(usuario);
 
         // Redireciona para a página de sucesso ou outra ação necessária
-        return "redirect:/pagina-de-sucesso";
+        return "redirect:/login";
     }
 }
 
