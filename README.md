@@ -19,10 +19,6 @@ O sistema atende a diversas regras de negócio para garantir seu correto funcion
 - Categorização de crimes ambientais, abrangendo fauna, flora, poluição, ordenamento urbano, e mais.
 - Atualização do status das denúncias pelos analistas.
 
-## Arquitetura
-
-O Pangolinux adota uma arquitetura modular e escalável, com a lógica de negócios no servidor e interfaces de usuário tratadas no cliente. Utiliza tecnologias como Java, PostgreSQL, React.js, e segue padrões como RESTful APIs e integração contínua.
-
 ## Requisitos de Ambiente
 
 - Espaço físico para instalação do hardware (PC ou desktop com Windows).
